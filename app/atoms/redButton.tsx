@@ -1,5 +1,5 @@
 interface redButtonProps {
-  text: String;
+  text: string;
 }
 
 export default function RedButton({ text }: redButtonProps) {

@@ -1,5 +1,5 @@
 interface CategoryMarkProps {
-  categoryName: String;
+  categoryName: string;
 }
 
 export default function CategoryMark({ categoryName }: CategoryMarkProps) {
