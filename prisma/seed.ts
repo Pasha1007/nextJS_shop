@@ -1,18 +1,6 @@
 import { prisma } from "./prisma-client";
-import { hashSync } from "bcrypt";
 
 async function up() {
-  await prisma.user.createMany({
-    data: [
-      {
-        token: "123",
-        fullName: "Pavlo",
-        email: "test@gmail.com",
-        password: hashSync("12345", 10),
-      },
-    ],
-  });
-
   await prisma.product.createMany({
     data: [
       {
@@ -49,21 +37,8 @@ async function up() {
       },
     ],
   });
-
-  await prisma.cart.createMany({
-    data: [
-      {
-        userId: 1,
-        totalAmount: 0,
-        token: "123",
-      },
-    ],
-  });
 }
 async function down() {
-  await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE`;
-  await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`;
 }
 
