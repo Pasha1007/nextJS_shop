@@ -8,7 +8,7 @@ export async function createProduct(formData: FormData) {
     data: {
       name: formData.get("name") as string,
       imageUrl: "/assets/bag.png",
-      rating: 5,
+      rating: parseFloat(formData.get("rating") as string),
       reviews: 100,
       price: parseFloat(formData.get("price") as string),
       oldPrice: parseFloat(formData.get("price") as string) + 90,
