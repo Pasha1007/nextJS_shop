@@ -1,5 +1,5 @@
 "use client";
-import { RiMenuLine, RiShoppingCartLine } from "@remixicon/react";
+import { RiMenuLine, RiHeartLine } from "@remixicon/react";
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
           <span className="hover:underline cursor-pointer">About</span>
           <span className="hover:underline cursor-pointer">Sign Up</span>
         </div>
-        <RiShoppingCartLine className="cursor-pointer" />
+        <RiHeartLine className="cursor-pointer" />
       </nav>
       <nav className="w-[90%] flex flex-row items-center justify-between md:hidden">
         <span className="text-[30px] font-bold">Exclusive</span>
