@@ -1,9 +1,9 @@
 import { createProduct } from "../actions/actions";
 
-export default function CreateForm() {
+export default function CreateForm({ closeModal }: { closeModal: () => void }) {
   return (
     <div className="p-4 md:p-5">
-      <form className="space-y-4" action={createProduct}>
+      <form className="space-y-4" action={createProduct} onSubmit={closeModal}>
         <div>
           <label
             htmlFor="name"

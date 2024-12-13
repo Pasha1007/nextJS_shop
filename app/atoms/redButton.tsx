@@ -49,7 +49,7 @@ export default function RedButton({ text }: redButtonProps) {
                     <span className="sr-only">Close modal</span>
                   </button>
                 </div>
-                <CreateForm />
+                <CreateForm closeModal={toggleModal} />
               </div>
             </div>
           </div>

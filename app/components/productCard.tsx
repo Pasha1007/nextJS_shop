@@ -1,9 +1,11 @@
 "use client";
 
-import { RiHeartLine, RiPencilLine } from "@remixicon/react";
+import { RiHeartLine, RiPencilLine, RiDeleteBinLine } from "@remixicon/react";
 import Image from "next/image";
 import UpdateForm from "../atoms/updateForm";
 import { useState } from "react";
+import { deleteProduct } from "../actions/actions";
+import DeleteBtn from "../atoms/deleteBtn";
 
 interface Product {
   id: string;
@@ -70,11 +72,16 @@ export default function ProductCard({ product }: ProductCardProps) {
                       <span className="sr-only">Close modal</span>
                     </button>
                   </div>
-                  {isEditMode && <UpdateForm product={product} />}
+                  {isEditMode && (
+                    <UpdateForm closeModal={toggleEditForm} product={product} />
+                  )}
                 </div>
               </div>
             </div>
           )}
+        </div>
+        <div className="absolute top-[88px] right-2 bg-white rounded-full p-1 cursor-pointer">
+          <DeleteBtn id={product.id} />
         </div>
       </figure>
       <figcaption className="flex flex-col gap-y-1">

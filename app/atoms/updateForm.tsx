@@ -2,7 +2,12 @@ import { useState } from "react";
 import { editProduct } from "../actions/actions";
 import type { Product } from "@prisma/client";
 
-export default function UpdateForm({ product }: { product: Product }) {
+interface UpdateFormProps {
+  product: Product;
+  closeModal: () => void;
+}
+
+export default function UpdateForm({ product, closeModal }: UpdateFormProps) {
   const [formData, setFormData] = useState({
     name: product.name,
     price: product.price,
@@ -25,6 +30,7 @@ export default function UpdateForm({ product }: { product: Product }) {
     form.append("price", formData.price.toString());
 
     await editProduct(form, product.id);
+    closeModal();
   };
 
   return (
